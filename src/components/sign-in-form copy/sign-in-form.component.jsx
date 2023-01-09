@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import FormInput from "../form-input/form-input.component";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
-
+import { UserContext } from "../../contexts/user.context";
 import "./sign-in-form.styles.scss";
 import Button from "../button/button.component";
 
@@ -22,27 +22,31 @@ const SignInForm = () => {
     setFormFields(defaultformFields);
   };
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
+    setCurrentUser(user);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
+      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
-          alert("incorrect password for email");
+          alert("Incorrect Password for this email");
           break;
         case "auth/user-not-found":
-          alert("no user associated with this email");
+          alert("No user associated with this Email Address");
           break;
         default:
           console.log(error);
@@ -57,9 +61,9 @@ const SignInForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Already have an Account</h2>
+      <h2>Already have an Account ?</h2>
       <h1>Sign in with your email and password</h1>
-      <form onSubmit={{ handleSubmit }}>
+      <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
           type="email"
