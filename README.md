@@ -7,7 +7,7 @@ E Commerce-Website made with Reactjs. This is a solo Project.
 ## 📌 Features 💡 
 
 - Multiple Routes.
-- User Authentications
+- User Authentication.
 
 ## 📌 Technologies used 🛠️
 
@@ -16,7 +16,8 @@ E Commerce-Website made with Reactjs. This is a solo Project.
 - [Redux](https://redux.js.org/) - Used for State Management 
 - [Styled Components](https://styled-components.com/) - Used for writting conditions in CSS 
 - [SCSS](https://sass-lang.com/) - Used for Styling
-- [React-Icons](https://react-icons.github.io/react-icons/) - Used for Icons 
+- [React-Icons](https://react-icons.github.io/react-icons/) - Used for Icons
+- [Firebase](https://firebase.google.com/) - Used for Authentication
 - [Vercel](https://vercel.com/) - Used for Deployment
 
 
