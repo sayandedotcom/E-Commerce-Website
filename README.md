@@ -1,8 +1,8 @@
-# E Commerce-Website
+# E Commerce Website
 
 [Visit Website](https://e-commerce-website-sayande2002.vercel.app)
 
-E Commerce-Website made with Reactjs. This is a solo Project.
+E Commerce Website made with Reactjs. This is a solo Project.
 
 ## 📌 Features 💡 
 
